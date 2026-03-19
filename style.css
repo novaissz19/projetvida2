@@ -1,0 +1,147 @@
++   1 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
++   2 
++   3 /* Variáveis de tema */
++   4 :root {
++   5     --cor-de-fundo: #1E1E1E;
++   6     --verde: #6FFF57;
++   7     --branco: #FFFFFF;
++   8     --botao-ativo: #3A375E;
++   9     --botao-inativo: rgba(58, 55, 94, 0.5);
++  10     --texto-fundo: rgba(58, 55, 94, 0.3);
++  11     --transicao: all 0.3s ease;
++  12 }
++  13 
++  14 /* Reset CSS */
++  15 * {
++  16     margin: 0;
++  17     padding: 0;
++  18     box-sizing: border-box;
++  19 }
++  20 
++  21 html {
++  22     scroll-behavior: smooth;
++  23 }
++  24 
++  25 body {
++  26     background-color: var(--cor-de-fundo);
++  27     color: var(--branco);
++  28     font-family: 'Chakra Petch', sans-serif;
++  29     line-height: 1.6;
++  30     min-height: 100vh;
++  31     padding: 2rem 1rem;
++  32 }
++  33 
++  34 /* Container principal */
++  35 .conteudo-principal {
++  36     display: flex;
++  37     flex-direction: column;
++  38     justify-content: center;
++  39     align-items: center;
++  40     max-width: 600px;
++  41     width: 100%;
++  42     margin: 0 auto;
++  43     gap: 2rem;
++  44 }
++  45 
++  46 /* Título */
++  47 .titulo-principal {
++  48     text-align: left;
++  49     width: 100%;
++  50     font-size: clamp(28px, 5vw, 36px);
++  51     font-weight: 700;
++  52     letter-spacing: 1px;
++  53     margin-bottom: 1rem;
++  54 }
++  55 
++  56 .titulo-principal span {
++  57     color: var(--verde);
++  58     animation: blink 1.5s infinite;
++  59 }
++  60 
++  61 @keyframes blink {
++  62     0%, 49%, 100% {
++  63         opacity: 1;
++  64     }
++  65     50%, 99% {
++  66         opacity: 0.3;
++  67     }
++  68 }
++  69 
++  70 /* Container de botões */
++  71 .botoes {
++  72     display: flex;
++  73     flex-direction: column;
++  74     gap: 0.5rem;
++  75     width: 100%;
++  76 }
++  77 
++  78 /* Estilo dos botões */
++  79 .botao {
++  80     font-family: 'Chakra Petch', sans-serif;
++  81     background-color: var(--botao-inativo);
++  82     color: var(--branco);
++  83     border: none;
++  84     padding: 1.25rem 1.5rem;
++  85     font-size: 16px;
++  86     font-weight: 500;
++  87     cursor: pointer;
++  88     transition: var(--transicao);
++  89     position: relative;
++  90     overflow: hidden;
++  91     text-align: left;
++  92     
++  93     border-bottom: 4px solid var(--botao-ativo);
++  94     border-left: 2px solid var(--botao-ativo);
++  95     border-right: 2px solid var(--botao-ativo);
++  96 }
++  97 
++  98 /* Primeiro botão - arredondado no topo */
++  99 .botao:first-child {
++ 100     border-radius: 12px 12px 0 0;
++ 101 }
++ 102 
++ 103 /* Último botão - arredondado embaixo */
++ 104 .botao:last-child {
++ 105     border-radius: 0 0 12px 12px;
++ 106 }
++ 107 
++ 108 /* Botões do meio sem arredondamento */
++ 109 .botao:not(:first-child):not(:last-child) {
++ 110     border-radius: 0;
++ 111 }
++ 112 
++ 113 /* Estados do botão */
++ 114 .botao:hover {
++ 115     background-color: var(--botao-ativo);
++ 116     box-shadow: 0 0 20px rgba(111, 255, 87, 0.3);
++ 117     border-left-color: var(--verde);
++ 118     border-right-color: var(--verde);
++ 119     border-bottom-color: var(--verde);
++ 120     transform: translateY(-2px);
++ 121 }
++ 122 
++ 123 .botao:focus {
++ 124     outline: 2px solid var(--verde);
++ 125     outline-offset: -2px;
++ 126 }
++ 127 
++ 128 .botao:active {
++ 129     transform: translateY(0);
++ 130     box-shadow: 0 0 10px rgba(111, 255, 87, 0.2);
++ 131 }
++ 132 
++ 133 /* Responsividade */
++ 134 @media (max-width: 600px) {
++ 135     body {
++ 136         padding: 1.5rem 1rem;
++ 137     }
++ 138     
++ 139     .titulo-principal {
++ 140         font-size: clamp(24px, 6vw, 32px);
++ 141     }
++ 142     
++ 143     .botao {
++ 144         padding: 1rem 1.25rem;
++ 145         font-size: 15px;
++ 146     }
++ 147 }
